@@ -1,0 +1,32 @@
+  <main class="wrapper">
+    <section class="listing">
+      <div class="row">
+        <div class="column" *ngFor="let p of lists">
+          <div class="card">
+            <img [src]="p.image" alt="Product Image" style="width:100%">
+            <div class="container">
+              <h2>{{p.title}}</h2>
+              <h3>Price: {{p.amount}} BDT</h3>    
+              <p>{{p.description}}</p>
+              <p><button class="button addtocart" (click)="addToCArt(p)">Add to cart</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cart">
+      <div class="container">
+        <h4>Total<span class="price total-price" style="color:black">{{total}}</span> BDT</h4>
+        <h4>Cart 
+          <span class="price count" style="color:black">{{carts.length}}</span>
+        </h4>
+        <hr>
+        <div class="cart-list" *ngFor="let d of carts; let i='index';">
+            <p>
+              <b>{{d.title}}</b> <span class="price">{{d.amount}} BDT</span> 
+              <a class="remove" (click)="remove(i)">X</a>
+            </p>
+        </div>
+      </div>
+    </section>
+  </main>

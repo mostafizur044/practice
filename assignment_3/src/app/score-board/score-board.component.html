@@ -1,0 +1,14 @@
+<main>
+  <h3>Cricket ScoreBoard</h3>
+  <h2 *ngIf="gameOver">GAME OVER</h2>
+  <section class="btn-section" *ngIf="!gameOver">
+    <button *ngFor="let s of scores" type="button" (click)="bowle(s.id)" 
+       class="fa" [ngClass]="s.class">{{s.des}}</button>
+  </section>
+  <section class="board-section">
+    <h4>Score: {{run}}</h4>
+    <h4>Wkt: {{wkt}}</h4>
+    <h4>Ball: {{ball}}</h4>
+    <h4>Over: {{over}}</h4>
+  </section>
+</main>

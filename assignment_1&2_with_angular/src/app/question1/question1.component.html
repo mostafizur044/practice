@@ -1,0 +1,30 @@
+<main class="wrapper">
+  <section class="form">
+    <h3>Basic Accounting Page</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" name="amount" formControlName="amount" placeholder="0.00">
+  
+      <label for="description">Description</label>
+      <textarea id="description" name="description" formControlName="description" placeholder="Write something.." style="height:100px"></textarea>
+  
+      <label for="type ">Type </label>
+      <select id="type " name="type" formControlName="type">
+        <option value="Income">Income</option>
+        <option value="Cost">Cost</option>
+      </select> 
+  
+      <button type="submit" [disabled]="!form.valid" class="btn btn-submit">Submit</button>
+      <button type="reset" class="btn btn-reset">Reset</button>
+  
+    </form>
+  </section>
+  <section class="details">
+    <article class="balance">
+      <h3>Current Balance: <span class="current-balance">{{balance.current}} </span>Taka</h3>
+    </article>
+    <article class="chart">
+      <canvas id="balanceChart"></canvas>
+    </article>
+  </section>
+</main>
